@@ -1,0 +1,21 @@
+export let moira = [
+  "Your future is positively bébélicious!",
+  "Darling, you're destined for greatness, like one of my more obscure yet critically acclaimed roles.",
+  "Ah, the stars align in your favour, much like my wigs in a perfect row.",
+  "Expect nothing but the finest, like a vintage Herb Ertlinger fruit wine.",
+  "A triumph is on the horizon, dear. Very coup de théâtre!",
+  "Success will follow you, just as admirers follow The Crows Have Eyes III: The Crowening.",
+  "Fortune favours you, darling, as you navigate life's grand stage with aplomb.",
+  "Your prospects are more splendid than my collection of couture!",
+  "Oh, dear. Your path seems as foggy as Jocelyn's taste in fashion.",
+  "Your future seems shrouded in uncertainty, an enigmatic conundrum.",
+  "Brace yourself, it's going to be a bébé bit rough.",
+  "Challenges lie ahead, threatening to disrupt your tranquil existence.",
+  "The outcome is darker than my most dramatic gothic wig.",
+  "Your fortunes are more tangled than one of my elaborate costumes.",
+  "The forecast is gloomier than Roland's flannel collection.",
+  "Your luck is more elusive than a good cup of café au lait in this town.",
+  "The outcome remains uncertain, like David's next career move.",
+  "You'll have to wait and see, darling, as one does for a Cabaret revival.",
+  "It's a 50/50 chance, much like Roland remembering an appointment."
+]
