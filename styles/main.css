@@ -791,9 +791,9 @@ em {
 /* Show/hide front or back of eight ball */
 
 .front {
-  display: none;
+  display: block;
 }
 
 .back {
-  display: block;
+  display: none;
 }

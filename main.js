@@ -24,7 +24,11 @@ function handleThemeChange() {
   console.log('Selected theme:', selectedValue)
   let themeAnswers = themes[selectedValue]
 
-  button.onclick = () => randomAnswer(themeAnswers)
+  // button.onclick = () => randomAnswer(themeAnswers)
+  button.addEventListener('click', () => {
+    randomAnswer(themeAnswers)
+    showBack()
+  })
 }
 
 // Add event listener for theme change
@@ -32,3 +36,26 @@ selector.addEventListener('change', handleThemeChange)
 
 // Trigger the function for the default option on page load
 handleThemeChange()
+
+// Function to change 'back' class' attribute of display to none
+
+let fronts = document.querySelectorAll('.front')
+let backs = document.querySelectorAll('.back')
+
+function showBack() {
+  backs.forEach(back => {
+    back.style.display = 'block'
+  })
+  fronts.forEach(front => {
+    front.style.display = 'none'
+  })
+}
+
+function hideBack() {
+  backs.forEach(back => {
+    back.style.display = 'none'
+  })
+  fronts.forEach(front => {
+    front.style.display = 'block'
+  })
+}
