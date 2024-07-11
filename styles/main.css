@@ -317,7 +317,7 @@ body {
 }
 
 .hero-padding {
-  padding-top: var(--size-900);
+  padding-top: calc(var(--size-900) * 2);
 }
 
 .mobile-nav-toggle {

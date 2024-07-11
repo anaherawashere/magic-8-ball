@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Title</title>
     <link href="./styles/main.css" rel="stylesheet" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="/images/logo.png" />
   </head>
 
   <body>
     <header class="primary-header">
       <div class="container" style="--maxwidth: 100%">
-        <div class="nav-bar ">
+        <div class="nav-bar">
           <div class="nav-items | bg-surface-200">
             <a aria-label="logo" href="/index.html">
               <svg class="header-logo" width="60px" height="60px">
@@ -34,7 +36,10 @@
               <span class="visually-hidden">Menu</span>
             </button>
             <nav class="primary-navigation" id="primary-navigation">
-              <ul aria-label="Primary" role="list" class="nav-list flex gap-500">
+              <ul
+                aria-label="Primary"
+                role="list"
+                class="nav-list flex gap-500">
                 <li><a href="/index.html#blog-posts">Themes</a></li>
                 <li><a href="/about.html">About</a></li>
                 <li><a href="#">Contact</a></li>
@@ -51,18 +56,27 @@
     <main class="bg-gradient-100">
       <section>
         <div class="container hero-padding">
-
+          <form action="/action_page.php">
+            <label for="theme-select">Choose a theme:</label>
+            <select name="themes" id="theme-select">
+              <option value="default" id="default">Original Magic 8 Ball</option>
+              <option value="moira" id="moira">Moira Rose</option>
+              <option value="greg" id="greg">Greg Davies</option>
+              <option value="lorelai" id="lorelai">Lorelai Gilmore</option>
+              <option value="sweary" id="sweary">Sweary</option>
+            </select>
+          </form>
         </div>
       </section>
 
       <section>
         <div class="container row-full flex jc--c ai--c">
-          <div class="padding-block-800 ">
+          <div class="padding-block-800">
             <div>
-              <img src="./Images/icon-instagram.svg" alt="">
+              <img src="./Images/icon-instagram.svg" alt="" />
             </div>
-            <div class="fs-750 fw-semibold">
-              <h2 id="heading"></h2>
+            <div class="fs-750 fw-semibold ai--c">
+              <h2 id="heading">Please select a theme</h2>
               <button id="generate" class="button button--primary">
                 Give it a shake
               </button>
@@ -79,17 +93,14 @@
           <div class="footer__logo">
             <a href="#">
               <svg class="footer-logo" width="60px" height="60px">
-                <use xlink:href="/images/logo.svg#logo"></use>
+                <use xlink:href="./images/logo.svg#logo"></use>
               </svg>
             </a>
           </div>
 
           <div>
             <nav class="footer-nav">
-              <ul
-                class="flex gap-400"
-                aria-label="Footer"
-                role="list">
+              <ul class="flex gap-400" aria-label="Footer" role="list">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Blog Posts</a></li>
                 <li><a href="#">Lorem</a></li>
