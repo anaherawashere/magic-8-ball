@@ -1,8 +1,8 @@
 import { themes } from './themes.js'
 
-let button = document.getElementById('generate')
+let button = document.querySelector('#generate')
 let selector = document.querySelector('#theme-select')
-let heading = document.getElementById('heading')
+let response = document.querySelector('.response')
 
 // Function to get a random number within a range
 function getRandomNumber(min, max) {
@@ -15,7 +15,7 @@ function getRandomNumber(min, max) {
 function randomAnswer(themeAnswers) {
   let randomIndex = getRandomNumber(0, themeAnswers.length - 1)
   let randomAnswer = themeAnswers[randomIndex]
-  heading.innerHTML = randomAnswer
+  response.innerHTML = randomAnswer
 }
 
 // Function to handle theme change and button click
