@@ -13,7 +13,7 @@
     <link rel="icon" type="image/x-icon" href="./Images/favicon.png" />
   </head>
 
-  <body>
+  <body class="wrapper">
     <header class="primary-header">
       <div class="container" style="--maxwidth: 100%">
         <div class="nav-bar">
@@ -54,8 +54,33 @@
     </header>
 
     <main class="bg-gradient-100">
+
       <section>
         <div class="container hero-padding">
+          <div class="ball">
+            <div class="front">
+              <img class="ball-front" src="./Images/magic8-front.png" />
+              <img class="clickme" src="./Images/clickme.png" />
+            </div>
+
+            <div class="back">
+              <!-- <img class="ball-back" src="./Images/magic8-back.png" /> -->
+              <img class="prediction" src="./Images/prediction.png" />
+              <h2 class="response">Please select a theme</h2>
+            </div>
+          </div>
+
+          <div class="fs-750 fw-semibold flex jc--c ai--c fd--c gap-400 padding-block-800">
+            <button id="generate" class="button button--primary">
+              Give it a shake
+            </button>
+            <button id="reset" class="button button--underlined">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container flex jc--c ai--c padding-block-800">
           <form action="/action_page.php">
             <label for="theme-select">Choose a theme:</label>
             <select name="themes" id="theme-select">
@@ -71,34 +96,6 @@
         </div>
       </section>
 
-      <section>
-        <div class="container">
-          <div class="eightball">
-            <div class="ball ball-front">
-              <img class="front" src="./Images/magic8-front.png" alt="" />
-              <img class="back" src="./Images/magic8-back.png" alt="" />
-              <div class="back prediction">
-                <img src="./Images/prediction.png" alt="" />
-              </div>
-              <div class="front clickme">
-                <img src="./Images/clickme.png" alt="" />
-              </div>
-              <div class="back response">
-              <h2>Please select a theme</h2>
-            </div>
-            </div>
-
-            
-          </div>
-          <div>
-            <div class="fs-750 fw-semibold ai--c">
-              <button id="generate" class="button button--primary">
-                Give it a shake
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer
