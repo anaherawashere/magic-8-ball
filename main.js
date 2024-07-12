@@ -1,7 +1,7 @@
 import { themes } from './themes.js'
 
 // Selecting the necessary DOM elements
-let button = document.querySelector('#generate')
+let generateButton = document.querySelector('#generate')
 let ball = document.querySelector('.ball')
 let response = document.querySelector('.response')
 
@@ -26,7 +26,7 @@ function randomAnswer(themeAnswers) {
   response.innerHTML = randomAnswer
 }
 
-// Function to handle theme change and button click
+// Function to handle theme change and generateButton click
 function handleThemeChange(selectedValue) {
   console.log('Selected theme:', selectedValue)
   let themeAnswers = themes[selectedValue]
@@ -37,11 +37,11 @@ function handleThemeChange(selectedValue) {
   }
 
   // Remove existing event listeners to prevent multiple bindings
-  button.removeEventListener('click', handleClick)
+  generateButton.removeEventListener('click', handleClick)
   ball.removeEventListener('click', handleClick)
 
   // Add new event listeners
-  button.addEventListener('click', handleClick)
+  generateButton.addEventListener('click', handleClick)
   ball.addEventListener('click', handleClick)
 }
 
@@ -84,3 +84,13 @@ function hideBack() {
     front.style.display = 'block'
   })
 }
+
+// Reset button
+
+let resetButton = document.querySelector('#reset')
+let clickMeImage = document.querySelector('.clickme')
+
+resetButton.addEventListener('click', () => {
+  hideBack()
+  clickMeImage.style.display = 'none'
+})

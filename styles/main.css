@@ -419,11 +419,15 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   width: 100%;
+  border-radius: var(--corners-sharp);
+  margin-top: var(--size-200);
 }
 
 .menu li {
   padding: 8px 12px;
   cursor: pointer;
+  border-radius: var(--corners-sharp);
+  margin: 4px;
 }
 
 .menu li:hover {
@@ -435,6 +439,10 @@ body {
   display: block;
 }
 
+.select :where(:hover, :focus-within) {
+  color: var(--clr-primary-300);
+  border-color: var(--clr-primary-300);
+}
 
 /* Sprites
 // ================================================== */
