@@ -1,6 +1,9 @@
 import { themes } from './themes.js'
 
 let button = document.querySelector('#generate')
+let ball = document.querySelector('.ball')
+let elementsInsideBall = document.querySelectorAll('.ball *') // Corrected to select all elements inside .ball
+let prediction = document.querySelector('.prediction')
 let selector = document.querySelector('#theme-select')
 let response = document.querySelector('.response')
 
@@ -15,7 +18,7 @@ function getRandomNumber(min, max) {
 function randomAnswer(themeAnswers) {
   let randomIndex = getRandomNumber(0, themeAnswers.length - 1)
   let randomAnswer = themeAnswers[randomIndex]
-  response.innerHTML = randomAnswer
+  response.querySelector('h2').innerHTML = randomAnswer
 }
 
 // Function to handle theme change and button click
@@ -24,10 +27,23 @@ function handleThemeChange() {
   console.log('Selected theme:', selectedValue)
   let themeAnswers = themes[selectedValue]
 
-  // button.onclick = () => randomAnswer(themeAnswers)
-  button.addEventListener('click', () => {
+  function handleClick() {
     randomAnswer(themeAnswers)
     showBack()
+  }
+  
+  // Remove existing event listeners to prevent multiple bindings
+  button.removeEventListener('click', handleClick)
+  ball.removeEventListener('click', handleClick)
+  elementsInsideBall.forEach(element => {
+    element.removeEventListener('click', handleClick)
+  })
+
+  // Add new event listeners
+  button.addEventListener('click', handleClick)
+  ball.addEventListener('click', handleClick)
+  elementsInsideBall.forEach(element => {
+    element.addEventListener('click', handleClick)
   })
 }
 
@@ -38,7 +54,6 @@ selector.addEventListener('change', handleThemeChange)
 handleThemeChange()
 
 // Function to change 'back' class' attribute of display to none
-
 let fronts = document.querySelectorAll('.front')
 let backs = document.querySelectorAll('.back')
 
