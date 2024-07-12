@@ -13,25 +13,29 @@
     <link rel="icon" type="image/x-icon" href="./Images/favicon.png" />
   </head>
 
-  <body class="wrapper">
+  <body class="bg-gradient-100">
     <header class="primary-header">
       <div class="container" style="--maxwidth: 100%">
-        <div class="nav-bar">
-          <div class="nav-items | bg-surface-200">
-            <a aria-label="logo" href="/index.html">
+        <div class="nav-header flex jc--sb ai--c padding-block-500">
+
+          <div>
+            <a aria-label="logo" href="./index.html">
               <svg class="header-logo" width="60px" height="60px">
-                <use xlink:href="./Images/logo-icon.svg#logo"></use>
+                <use xlink:href="/images/logo-icon.svg#logo"></use>
               </svg>
             </a>
+          </div>
+
+          <div class="nav-bar | bg-transparent-primary-200">
             <button
               class="mobile-nav-toggle"
               aria-controls="primary-navigation"
               aria-expanded="false">
               <svg class="nav-icon icon-close" aria-hidden="true">
-                <use xlink:href="/images/nav-icons.svg#icon-close"></use>
+                <use xlink:href="./Images/nav-icons.svg#icon-close"></use>
               </svg>
               <svg class="nav-icon icon-hamburger" aria-hidden="true">
-                <use xlink:href="/images/nav-icons.svg#icon-hamburger"></use>
+                <use xlink:href="./Images/nav-icons.svg#icon-hamburger"></use>
               </svg>
               <span class="visually-hidden">Menu</span>
             </button>
@@ -39,12 +43,28 @@
               <ul
                 aria-label="Primary"
                 role="list"
-                class="nav-list flex gap-500">
-                <li><a href="/index.html#blog-posts">Themes</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="#">Contact</a></li>
+                class="nav-list flex gap-800">
+                <li>
+                  <div class="dropdown text-surface-100">
+                    <div class="select" id="theme-select">
+                      <span class="selected fw-semibold text-white">Original Magic 8 Ball</span>
+                      <div class="caret"></div>
+                    </div>
+                    <ul class="menu" role="list">
+                      <li data-value="default">Original Magic 8 Ball</li>
+                      <li data-value="moira">Moira Rose</li>
+                      <li data-value="greg">Greg Davies</li>
+                      <li data-value="lorelai">Lorelai Gilmore</li>
+                      <li data-value="sweary">Sweary</li>
+                    </ul>
+                  </div>
+                </li>
+                <li><a href="#">How it works</a></li>
               </ul>
             </nav>
+          </div>
+
+          <div>
             <button class="button button--primary | mbl--hide">
               I'm a button
             </button>
@@ -53,10 +73,9 @@
       </div>
     </header>
 
-    <main class="bg-gradient-100">
-
+    <main>
       <section>
-        <div class="container hero-padding">
+        <div class="container padding-block-600">
           <div class="ball">
             <div class="front">
               <img class="ball-front" src="./Images/magic8-front.png" />
@@ -64,13 +83,13 @@
             </div>
 
             <div class="back">
-              <!-- <img class="ball-back" src="./Images/magic8-back.png" /> -->
               <img class="prediction" src="./Images/prediction.png" />
               <h2 class="response">Please select a theme</h2>
             </div>
           </div>
 
-          <div class="fs-750 fw-semibold flex jc--c ai--c fd--c gap-400 padding-block-800">
+          <div
+            class="fs-750 fw-semibold flex jc--c ai--c fd--c gap-400 padding-block-800">
             <button id="generate" class="button button--primary">
               Give it a shake
             </button>
@@ -80,22 +99,10 @@
       </section>
 
       <section>
-        <div class="container flex jc--c ai--c padding-block-800">
-          <form action="/action_page.php">
-            <label for="theme-select">Choose a theme:</label>
-            <select name="themes" id="theme-select">
-              <option value="default" id="default">
-                Original Magic 8 Ball
-              </option>
-              <option value="moira" id="moira">Moira Rose</option>
-              <option value="greg" id="greg">Greg Davies</option>
-              <option value="lorelai" id="lorelai">Lorelai Gilmore</option>
-              <option value="sweary" id="sweary">Sweary</option>
-            </select>
-          </form>
+        <div class="container flex jc--c ai--c padding-block-600">
+                    
         </div>
       </section>
-
     </main>
 
     <footer

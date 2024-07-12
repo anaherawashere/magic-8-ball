@@ -1,10 +1,16 @@
 import { themes } from './themes.js'
 
+// Selecting the necessary DOM elements
 let button = document.querySelector('#generate')
 let ball = document.querySelector('.ball')
-// let elementsInsideBall = document.querySelectorAll('.ball img, .ball h2') // Select images and h2 inside .ball
-let selector = document.querySelector('#theme-select')
 let response = document.querySelector('.response')
+
+// Custom dropdown elements
+let dropdown = document.querySelector('.dropdown')
+let select = dropdown.querySelector('.select')
+let menu = dropdown.querySelector('.menu')
+let options = menu.querySelectorAll('li')
+let selected = dropdown.querySelector('.selected')
 
 // Function to get a random number within a range
 function getRandomNumber(min, max) {
@@ -21,8 +27,7 @@ function randomAnswer(themeAnswers) {
 }
 
 // Function to handle theme change and button click
-function handleThemeChange() {
-  let selectedValue = selector.value
+function handleThemeChange(selectedValue) {
   console.log('Selected theme:', selectedValue)
   let themeAnswers = themes[selectedValue]
 
@@ -30,27 +35,33 @@ function handleThemeChange() {
     randomAnswer(themeAnswers)
     showBack()
   }
-  
+
   // Remove existing event listeners to prevent multiple bindings
   button.removeEventListener('click', handleClick)
   ball.removeEventListener('click', handleClick)
-  // elementsInsideBall.forEach(element => {
-  //   element.removeEventListener('click', handleClick)
-  // })
 
   // Add new event listeners
   button.addEventListener('click', handleClick)
   ball.addEventListener('click', handleClick)
-  // elementsInsideBall.forEach(element => {
-  //   element.addEventListener('click', handleClick)
-  // })
 }
 
-// Add event listener for theme change
-selector.addEventListener('change', handleThemeChange)
+// Add event listener for the custom dropdown
+select.addEventListener('click', () => {
+  select.classList.toggle('select-clicked')
+  menu.classList.toggle('menu-open')
+})
+
+options.forEach(option => {
+  option.addEventListener('click', () => {
+    selected.innerHTML = option.innerHTML
+    select.classList.remove('select-clicked')
+    menu.classList.remove('menu-open')
+    handleThemeChange(option.getAttribute('data-value'))
+  })
+})
 
 // Trigger the function for the default option on page load
-handleThemeChange()
+handleThemeChange('default')
 
 // Function to change 'back' class' attribute of display to none
 let fronts = document.querySelectorAll('.front')
