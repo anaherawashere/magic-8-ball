@@ -41,8 +41,20 @@ function handleThemeChange(selectedValue) {
   ball.removeEventListener('click', handleClick)
 
   // Add new event listeners
-  generateButton.addEventListener('click', handleClick)
-  ball.addEventListener('click', handleClick)
+  generateButton.addEventListener('click', () => {
+    setTimeout(() => {
+      handleClick();
+    }, 1500
+    )
+    shakeBall()
+  })
+  ball.addEventListener('click', () => {
+    shakeBall()
+    setTimeout(() => {
+      handleClick();
+    }, 1500
+    )
+  })
 }
 
 // Add event listener for the custom dropdown
@@ -86,7 +98,6 @@ function hideBack() {
 }
 
 // Reset button
-
 let resetButton = document.querySelector('#reset')
 let clickMeImage = document.querySelector('.clickme')
 
@@ -94,3 +105,10 @@ resetButton.addEventListener('click', () => {
   hideBack()
   clickMeImage.style.display = 'none'
 })
+
+// Shake ball function
+function shakeBall() {
+  let ballFront = document.querySelector('.ball-front')
+
+  ballFront.classList.add('shake-ball')
+}
