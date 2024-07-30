@@ -782,9 +782,10 @@ em {
 }
 
 /* Front of magic eight ball */
-.ball-front {
-  max-width: 100%;
-  max-height: 100%;
+.ball-front,
+.ball-back {
+  max-width: 95%;
+  max-height: 95%;
   margin: 0 auto 30px auto;
 }
 
@@ -817,17 +818,6 @@ em {
   width: 7em;
 }
 
-/* Back of magic eight ball */
-.ball-back {
-  /* Back of magic eight ball */
-  width: 160%;          /* Adjust the width based on the parent container */
-  height: auto;        /* Maintain the aspect ratio */
-  max-width: 160%;     /* Ensure it doesn't get too large */
-  max-height: 100%;    /* Ensure it doesn't get too large */
-  margin: 0;      /* Center align */
-}
-
-/* Prediction and response styles */
 .prediction,
 .response {
   display: flex;
@@ -843,6 +833,15 @@ em {
   top: 56.5%;
   left: 50%;
   width: 66%;
+}
+
+.fade-in {
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .response {
@@ -866,13 +865,7 @@ em {
 
 .back {
   display: none;
-
   height: 65svh;
-
-  background-image: url("../Images/magic8-back.png");
-  background-position: center;
-  background-size: 150%;
-  background-repeat: no-repeat;
 }
 
 @media (min-width: 50em) {

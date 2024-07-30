@@ -20,6 +20,8 @@ function getRandomNumber(min, max) {
 }
 
 // Function to display a random answer
+
+
 function randomAnswer(themeAnswers) {
   let randomIndex = getRandomNumber(0, themeAnswers.length - 1)
   let randomAnswer = themeAnswers[randomIndex]
@@ -27,9 +29,12 @@ function randomAnswer(themeAnswers) {
 }
 
 // Function to handle theme change and generateButton click
+let currentTheme = 'default'
+
 function handleThemeChange(selectedValue) {
   console.log('Selected theme:', selectedValue)
   let themeAnswers = themes[selectedValue]
+  currentTheme = selectedValue
 
   function handleClick() {
     randomAnswer(themeAnswers)
@@ -42,19 +47,50 @@ function handleThemeChange(selectedValue) {
 
   // Add new event listeners
   generateButton.addEventListener('click', () => {
+    // if shake-ball class does not exsist, shake the front, and after 1500 turn the ball and reveal answer
+    shakeFront()
+    shakeBack()
+    hideResponse()
     setTimeout(() => {
-      handleClick();
-    }, 1500
-    )
-    shakeBall()
+      handleClick()
+      showResponse()
+      prediction.classList.toggle('fade-in')
+  response.classList.toggle('fade-in')
+    }, 1500)
   })
+
   ball.addEventListener('click', () => {
-    shakeBall()
+    shakeFront()
+    shakeBack()
+    hideResponse()
     setTimeout(() => {
-      handleClick();
-    }, 1500
-    )
+      handleClick()
+      showResponse()
+      prediction.classList.toggle('fade-in')
+  response.classList.toggle('fade-in')
+    }, 1500)
   })
+}
+
+
+// Shake ball function
+
+let ballFront = document.querySelector('.ball-front')
+let ballBack = document.querySelector('.ball-back')
+let prediction = document.querySelector('.prediction')
+let ballSides = [ballFront, ballBack]
+
+function shakeFront() {
+  ballFront.classList.toggle('shake-ball')
+}
+function shakeBack() {
+  ballBack.classList.toggle('shake-ball')
+  
+  setTimeout(() => {
+    ballBack.classList.remove('shake-ball')
+    prediction.classList.remove('fade-in')
+    response.classList.remove('fade-in')
+  }, 1500)
 }
 
 // Add event listener for the custom dropdown
@@ -63,7 +99,7 @@ select.addEventListener('click', () => {
   menu.classList.toggle('menu-open')
 })
 
-options.forEach(option => {
+options.forEach((option) => {
   option.addEventListener('click', () => {
     selected.innerHTML = option.innerHTML
     select.classList.remove('select-clicked')
@@ -72,29 +108,39 @@ options.forEach(option => {
   })
 })
 
-// Trigger the function for the default option on page load
-handleThemeChange('default')
+// handleThemeChange('default')
+
 
 // Function to change 'back' class' attribute of display to none
 let fronts = document.querySelectorAll('.front')
 let backs = document.querySelectorAll('.back')
 
 function showBack() {
-  backs.forEach(back => {
+  backs.forEach((back) => {
     back.style.display = 'block'
   })
-  fronts.forEach(front => {
+  fronts.forEach((front) => {
     front.style.display = 'none'
   })
 }
 
 function hideBack() {
-  backs.forEach(back => {
+  backs.forEach((back) => {
     back.style.display = 'none'
   })
-  fronts.forEach(front => {
+  fronts.forEach((front) => {
     front.style.display = 'block'
   })
+}
+
+function showResponse () {
+  prediction.style.display = 'block'
+  response.style.display = 'block'
+}
+
+function hideResponse () {
+  prediction.style.display = 'none'
+  response.style.display = 'none'
 }
 
 // Reset button
@@ -106,9 +152,4 @@ resetButton.addEventListener('click', () => {
   clickMeImage.style.display = 'none'
 })
 
-// Shake ball function
-function shakeBall() {
-  let ballFront = document.querySelector('.ball-front')
 
-  ballFront.classList.add('shake-ball')
-}
