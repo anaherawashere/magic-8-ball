@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Magic 8 Ball</title>
-    <link href="./styles/main.css" rel="stylesheet" type="text/css" />
+    <link href="./main.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,10 +12,9 @@
       rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="./Images/favicon.png" />
   </head>
-
-  <body class="bg-gradient-100">
+  <body class="body-bg">
     <header class="primary-header">
-      <div class="container" style="--maxwidth: 100%">
+      <div class="" style="--maxwidth: 100%">
         <div class="nav-header flex jc--sb ai--c padding-block-500">
           <div>
             <a aria-label="logo" href="./index.html">
@@ -38,24 +37,31 @@
               </svg>
               <span class="visually-hidden">Menu</span>
             </button>
-            <nav class="primary-navigation" id="primary-navigation">
-              <ul
-                aria-label="Primary"
-                role="list"
-                class="nav-list flex gap-800">
+            <nav
+              class="primary-navigation"
+              id="primary-navigation"
+              aria-label="primary-navigation">
+              <ul aria-label="Primary" class="nav-list flex gap-800">
                 <li>
                   <div class="dropdown fw-semibold text-white">
                     <!-- this div groups the selected theme/span and funky arrow together -->
                     <div class="select" id="theme-select">
-                      <span class="selected">Original Magic 8 Ball</span>
+                      Current theme:
+                      <span class="selected" id="current-theme-display"
+                        >Original Magic 8 Ball</span
+                      >
                       <div class="caret"></div>
                     </div>
-                    <ul class="menu fs-300" role="list">
-                      <li data-value="default">Original Magic 8 Ball</li>
-                      <li data-value="moira">Moira Rose</li>
-                      <li data-value="greg">Greg Davies</li>
-                      <li data-value="lorelai">Lorelai Gilmore</li>
-                      <li data-value="sweary">Sweary</li>
+                    <ul class="menu fs-300">
+                      <li class="theme-item" data-value="default">
+                        Original Magic 8 Ball
+                      </li>
+                      <li class="theme-item" data-value="moira">Moira Rose</li>
+                      <li class="theme-item" data-value="greg">Greg Davies</li>
+                      <li class="theme-item" data-value="lorelai">
+                        Lorelai Gilmore
+                      </li>
+                      <li class="theme-item" data-value="sweary">Sweary</li>
                     </ul>
                   </div>
                 </li>
@@ -74,34 +80,48 @@
     </header>
 
     <main>
-      <section>
-        <div class="container padding-block-600">
-          <div class="ball">
-            <div class="front">
-              <img class="ball-front" src="./Images/magic8-front.png" />
-              <img class="clickme" src="./Images/clickme.png" />
-            </div>
-
-            <div class="back">
-              <img class="ball-back" src="./Images/magic8-back.png" />
-              <img class="prediction" src="./Images/prediction.png" />
-              <h2 class="response">Please select a theme</h2>
-            </div>
+      <div class="padding-block-500">
+        <div class="ball" id="ball">
+          <div class="front show" id="front">
+            <img
+              alt=""
+              aria-hidden="true"
+              class="ball-front"
+              src="./Images/magic8-front.png" />
+            <img
+              alt=""
+              aria-hidden="true"
+              class="clickme"
+              id="click-me"
+              src="./Images/clickme.png" />
           </div>
 
-          <div
-            class="fs-750 fw-semibold flex jc--c ai--c fd--c gap-400 padding-block-800">
-            <button id="generate" class="button button--primary">
-              Give it a shake
-            </button>
-            <button id="reset" class="button button--underlined">Reset</button>
+          <div class="back hide" id="back">
+            <img
+              alt=""
+              aria-hidden="true"
+              class="ball-back"
+              src="./Images/magic8-back.png" />
+            <img
+              alt=""
+              aria-hidden="true"
+              class="response-background hide"
+              id="response-background"
+              src="./Images/magic8-response-bg.png" />
+            <h2 class="response-message hide" id="response-message">
+              Please select a theme
+            </h2>
           </div>
         </div>
-      </section>
 
-      <section>
-        <div class="container flex jc--c ai--c padding-block-600"></div>
-      </section>
+        <div
+          class="fs-750 fw-semibold flex jc--c ai--c fd--c gap-400 padding-block-800">
+          <button id="generate" class="button button--primary">
+            Give it a shake
+          </button>
+          <button id="reset" class="button button--underlined">Reset</button>
+        </div>
+      </div>
     </main>
 
     <footer
