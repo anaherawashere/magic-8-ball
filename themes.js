@@ -61,7 +61,7 @@ export let themes = {
     'The result is as unsatisfactory as a half-hearted attempt.',
     "It's a 50/50 chance, much like predicting Greg Davies' next sarcastic remark.",
     'Maybe. Maybe not. What do you want from me, a crystal ball?',
-    'Ask again later. I’m busy being magnificent.',
+    "Ask again later. I'm busy being magnificent.",
     'Could go either way, like a wobbly contestant on a slippery slope.',
   ],
 }
